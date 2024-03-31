@@ -1,24 +1,19 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const userSchema = new Schema({
-  username: {
+const musicSchema = new Schema({
+  title: {
     type: String,
     required: true,
   },
-  email: {
+  genre: {
     type: String,
     required: true,
-    unique: true,
   },
-  password: {
+  artist: {
     type: String,
     required: true,
   }, 
-},
-{
-  timestamps: true
-}
-);
+});
 
-module.exports = User = mongoose.model("User", userSchema);
+module.exports = mongoose.model("Music", musicSchema);

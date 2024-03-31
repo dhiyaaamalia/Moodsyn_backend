@@ -1,11 +1,23 @@
-require("dotenv").config();
+// require("dotenv").config();
+
 const express = require('express');
+const cors = require("cors");
 const app = express();
-const port = process.env.PORT || 3000;
 
+const PORT = process.env.PORT || 8000;
 
+const corsOptions = {
+  origin: "*" 
+};
 
-app.listen(port, () => {
-    console.log('listening for requests on port: ${port}')
+app.use(cors(corsOptions));
+app.use(express.json());
 
-})
+app.get("/", (req, res) => {
+  res.json({ message: "Hello" });
+});
+
+app.listen(PORT, () => {
+  console.log(`Listening for requests on port: ${PORT}`);
+});
+
