@@ -1,11 +1,14 @@
 const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
 
-const paylistSchema = new Schema({
-  name: {
+const playlistSchema = new Schema({
+  userId: {
+    type: String,
+    required: true,
+  },  
+  playlistName: {
     type: String,
     required: true,
   }
 });
 
-module.exports = mongoose.model("Paylist", paylistSchema);
+module.exports = mongoose.model("Playlist", playlistSchema);
